@@ -59,48 +59,46 @@ public class WebConfig implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 
-    @Bean
-    public DataSource getDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/studybase?autoReconnect=true&useSSL=FALSE&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true");
-        dataSource.setUsername("root");
-        dataSource.setPassword("Slava1478951");
-        return dataSource;
-    }
-
-    Properties additionalProperties() {
-        Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-
-        return properties;
-    }
-
-
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean enManager
-                = new LocalContainerEntityManagerFactoryBean();
-        enManager.setDataSource(getDataSource());
-
-        enManager.setPackagesToScan(new String[] { "web.model" });
-
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        enManager.setJpaVendorAdapter(vendorAdapter);
-        enManager.setJpaProperties(additionalProperties());
-
-        return enManager;
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-
-        return transactionManager;
-
-
-    }
+//    @Bean
+//    public DataSource getDataSource() {
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/studybase?autoReconnect=true&useSSL=FALSE&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("Slava1478951");
+//        return dataSource;
+//    }
+//
+//    Properties additionalProperties() {
+//        Properties properties = new Properties();
+//        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+//        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+//
+//        return properties;
+//    }
+//
+//
+//    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+//        LocalContainerEntityManagerFactoryBean enManager
+//                = new LocalContainerEntityManagerFactoryBean();
+//        enManager.setDataSource(getDataSource());
+//
+//        enManager.setPackagesToScan(new String[] { "model" });
+//
+//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//        enManager.setJpaVendorAdapter(vendorAdapter);
+//        enManager.setJpaProperties(additionalProperties());
+//
+//        return enManager;
+//    }
+//
+//    @Bean
+//    public PlatformTransactionManager transactionManager() {
+//        JpaTransactionManager transactionManager = new JpaTransactionManager();
+//        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+//
+//        return transactionManager;
+//    }
 
 }
