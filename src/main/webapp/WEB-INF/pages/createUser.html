@@ -8,7 +8,7 @@
 <body>
 <div align="center">
     <h1>New User</h1>
-    <form action="#" th:action="@{/create}" th:object="${createNewUser}" method="POST">
+    <form action="#" th:action="@{/save}" th:object="${createNewUser}" method="POST">
         <table cellspacing="1" cellpadding="5" border="1" width="30%">
             <tr>
                 <td>First Name - </td>
@@ -26,6 +26,8 @@
                 <td><input type="submit" value="Create" /></td>
             </tr>
         </table>
+
+        <h2><a href="/"> return to main page</a></h2>
     </form>
 </div>
 </body>

@@ -13,7 +13,7 @@
     </div>
 
     <div  align="center">
-        <table>
+        <table cellspacing="1" cellpadding="5" border="1" width="30%">
             <caption th:text="Users"></caption>
             <thead>
                 <tr>
@@ -30,11 +30,14 @@
                     <td><span th:text="${user.age}"></span></td>
                     <td>
                         <a th:href="@{/edit(id=${user.id})}">Edit user</a>
-                        <a href="@{/delete(id=${user.id})}">Delete user</a>
+                        <a th:href="@{/delete(id=${user.id})}">Delete</a>
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <h2><a href="/create"> Create new user</a></h2>
+
     </div>
 </body>
 </html>

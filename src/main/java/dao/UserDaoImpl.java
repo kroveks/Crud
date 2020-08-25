@@ -4,7 +4,9 @@ import model.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -44,6 +46,6 @@ public class UserDaoImpl implements UserDao {
         query.setParameter("userAge", user.getAge());
         query.setParameter("userId", user.getId());
 
-        query.executeUpdate();           //11
+        query.executeUpdate();
     }
 }
