@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/")
+//@RequestMapping(value = "/")
 public class Homepage {
 
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @GetMapping()
+    @GetMapping(value = "/")
     public String printWelcome(ModelMap model) {
         List<String> messages = new ArrayList<>();
         messages.add("Hi mate!");
